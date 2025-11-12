@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Увеличьте прибыль вашего отеля в 2 раза</title>
+    <style>
+        /* === СТИЛИ ДЛЯ ВСЕГО САЙТА === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* === ОСНОВНЫЕ ЦВЕТА === */
+        :root {
+            --primary: #2A4B8C;    /* Основной синий */
+            --accent: #FF6B35;     /* Акцентный оранжевый */
+            --dark: #1E1E1E;       /* Тёмный текст */
+            --light: #F9F9F9;      /* Светлый фон */
+            --white: #FFFFFF;
+        }
+
+        /* === ОБЩИЕ СТИЛИ === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* === КНОПКА === */
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+            background: #e55a2b;
+        }
+
+        /* === ЭКРАН 1: ГЛАВНЫЙ ОФФЕР === */
+        .hero {
+            background: linear-gradient(rgba(42, 75, 140, 0.8), rgba(42, 75, 140, 0.9)), 
+                        url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            /* ЗАМЕНИТЬ URL НА РЕАЛЬНОЕ AI-ФОТО ОТЕЛЯ */
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero ul {
+            list-style: none;
+            margin: 30px 0;
+            font-size: 1.3rem;
+        }
+
+        .hero li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .accent {
+            color: var(--accent);
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+
+        /* === ЭКРАН 2: БОЛЬ КЛИЕНТА === */
+        .pain-section {
+            background: var(--light);
+            text-align: center;
+        }
+
+        .pain-list {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .pain-item {
+            background: var(--white);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pain-item::before {
+            content: '☑️';
+            font-size: 1.3rem;
+        }
+
+        blockquote {
+            font-style: italic;
+            font-size: 1.3rem;
+            border-left: 4px solid var(--accent);
+            padding: 20px 0 20px 30px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: left;
+            background: var(--white);
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* === ЭКРАН 3: ПРИЗЫВ К ДЕЙСТВИЮ === */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), #1a3366);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .benefits-list {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            text-align: left;
+        }
+
+        .benefits-list ol {
+            margin-left: 20px;
+        }
+
+        .benefits-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .benefits-list li::marker {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .note {
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* === АДАПТИВ ДЛЯ МОБИЛЬНЫХ === */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+                min-height: auto;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .pain-item, .benefits-list li {
+                font-size: 1rem;
+                padding: 15px;
+            }
+
+            blockquote {
+                font-size: 1.1rem;
+                margin: 20px auto;
+                padding: 15px 0 15px 20px;
+            }
+
+            .btn-primary {
+                padding: 16px 30px;
+                font-size: 1.1rem;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* === АНИМАЦИИ === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- ЭКРАН 1: ГЛАВНЫЙ ОФФЕР -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>
+                    Увеличьте прибыль вашего отеля 
+                    <span class="highlight">в 2 раза за 30 дней</span>
+                </h1>
+                
+                <p style="font-size: 1.4rem; margin-bottom: 30px;">
+                    Получите <strong>бесплатно</strong> персональный план роста уже сегодня.
+                </p>
+                
+                <ul>
+                    <li>📊 Разбор за 15 минут. <span class="accent">Осталось 5 мест</span></li>
+                    <li>💰 Выручка — <strong>x2</strong></li>
+                </ul>
+                
+                <!-- КНОПКА С ССЫЛКОЙ НА ТЕЛЕГРАМ -->
+                <a href="https://t.me/username?text=Здравствуйте! Хочу записаться на бесплатный разбор отеля." 
+                   class="btn-primary" 
+                   target="_blank">
+                    Получить бесплатный разбор
+                </a>
+                <!-- ЗАМЕНИТЬ username НА РЕАЛЬНЫЙ ТЕЛЕГРАМ -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭКРАН 2: БОЛЬ КЛИЕНТА -->
+    <section class="pain-section" id="pain">
+        <div class="container">
+            <h2 class="fade-in">Узнаёте себя?</h2>
+            
+            <div class="pain-list fade-in">
+                <!-- СПИСОК ПРОБЛЕМ - МОЖНО ДОБАВИТЬ/УБРАТЬ ПУНКТЫ -->
+                <div class="pain-item">Загрузка ниже 60 %, даже в сезон пустые номера</div>
+                <div class="pain-item">ОТА (Яндекс. Путешествия, Островок, Авито) приносят мало броней, рейтинг падает</div>
+                <div class="pain-item">Негативные отзывы портят репутацию</div>
+                <div class="pain-item">Отель не приносит желаемый доход</div>
+                <div class="pain-item">Всё делаю сам: уборка, ремонт, бронирования</div>
+                <div class="pain-item">Старые фото и описания</div>
+                <div class="pain-item">Сезонность — зимой простаиваем или закрываем отель</div>
+                <div class="pain-item">Конкуренты хуже, но зарабатывают больше</div>
+            </div>
+
+            <!-- ЦИТАТА -->
+            <blockquote class="fade-in">
+                "Работаю без выходных, а денег почти не остаётся. Всё на мне."
+            </blockquote>
+
+            <!-- КНОПКА ДУБЛИРУЕТСЯ ДЛЯ УДОБСТВА -->
+            <div style="text-align: center;">
+                <a href="https://t.me/username?text=Здравствуйте! Хочу записаться на бесплатный разбор отеля." 
+                   class="btn-primary" 
+                   target="_blank">
+                    Исправить эти проблемы
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭКРАН 3: ПРИЗЫВ К ДЕЙСТВИЮ -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="fade-in">
+                <h2>Что вы получите на бесплатной консультации</h2>
+                
+                <div class="benefits-list">
+                    <ol>
+                        <li>Анализ ваших каналов продаж</li>
+                        <li>Обзор основных ошибок</li>
+                        <li>Расчёт потери дохода и потенциала роста</li>
+                        <li>План улучшений на ближайшие 30 дней</li>
+                    </ol>
+                </div>
+                
+                <p class="note">Бесплатно в формате 15-минутного онлайн-разбора.</p>
+                
+                <!-- ОСНОВНАЯ КНОПКА CTA -->
+                <a href="https://t.me/username?text=Здравствуйте! Хочу записаться на бесплатный разбор отеля." 
+                   class="btn-primary" 
+                   target="_blank">
+                    Записаться на бесплатный разбор
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // === ПРОСТАЯ АНИМАЦИЯ ПРИ СКРОЛЛЕ ===
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
